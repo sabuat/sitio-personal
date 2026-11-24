@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabuat Urbina Ribeiro — Customer Experience, Datos, Producto Digital y Literatura</title>
+  <meta name="description" content="Portafolio profesional y literario de Sabuat Urbina Ribeiro. Customer Experience, Operaciones Internacionales, Ciencia de Datos, Desarrollo Web y Literatura Latinoamericana." />
+
+  <!-- Custom Geometric SVG Favicon (urbina.png) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Crect width='100' height='100' rx='18' fill='%23111111'/%3E%3Cpolygon points='16,11 47,21 16,31' fill='%23FFFFFF'/%3E%3Cpolygon points='16,34 49,23 49,41 16,52' fill='%23FFFFFF'/%3E%3Cpolygon points='16,55 49,44 49,62 16,73' fill='%23FFFFFF'/%3E%3Cpolygon points='18,76 49,65 49,87' fill='%23FFFFFF'/%3E%3Cpath d='M52 84.5 L80 75 V13' stroke='%23D9232E' stroke-width='4.5' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Plus Jakarta Sans (Editorial & UI) + Playfair Display (Literary Accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#111111',
+            surface: '#F8F7F5',
+            hairline: '#E6E4DF',
+            slatebody: '#4B5563',
+            crimson: {
+              DEFAULT: '#D9232E',
+              hover: '#B81B24',
+              soft: '#FDF2F2',
+            },
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            editorial: '0 12px 32px -12px rgba(17, 17, 17, 0.08)',
+            cardHover: '0 20px 42px -16px rgba(17, 17, 17, 0.14)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Smooth accordion grid transition */
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease-out;
+    }
+    .accordion-item[data-open="true"] .accordion-content {
+      grid-template-rows: 1fr;
+    }
+    .accordion-inner {
+      overflow: hidden;
+    }
+    .accordion-item[data-open="true"] .accordion-icon {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body class="bg-white text-ink font-sans antialiased selection:bg-crimson selection:text-white overflow-x-hidden">
+
+  <!-- =========================================================
+       1. STICKY NAVBAR
+  ========================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-hairline">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Brand: Custom Geometric SVG Logo + Name -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none shrink-0">
+        <span class="w-10 h-10 rounded-xl bg-surface border border-hairline flex items-center justify-center text-ink group-hover:bg-ink group-hover:text-white group-hover:border-ink transition-colors duration-200 p-1.5">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
+            <polygon points="16,11 47,21 16,31" fill="currentColor"/>
+            <polygon points="16,34 49,23 49,41 16,52" fill="currentColor"/>
+            <polygon points="16,55 49,44 49,62 16,73" fill="currentColor"/>
+            <polygon points="18,76 49,65 49,87" fill="currentColor"/>
+            <path d="M52 84.5 L80 75 V13" stroke="currentColor" stroke-width="4.5" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+        </span>
+        <div class="leading-tight">
+          <span class="block text-sm sm:text-base font-extrabold tracking-wider text-ink uppercase">SABUAT URBINA</span>
+          <span class="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.16em] text-slatebody" data-i18n="brand.tagline">CX · Datos · Autor</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden xl:flex items-center gap-6 text-sm font-semibold text-slatebody" aria-label="Primary navigation">
+        <a href="#inicio" class="hover:text-crimson transition-colors py-2" data-i18n="nav.about">Sobre mí</a>
+        <a href="#capacidades" class="hover:text-crimson transition-colors py-2" data-i18n="nav.capabilities">Capacidades</a>
+        <a href="#literatura" class="hover:text-crimson transition-colors py-2" data-i18n="nav.literature">Literatura</a>
+        <a href="#github" class="hover:text-crimson transition-colors py-2" data-i18n="nav.github">GitHub</a>
+        <a href="#trayectoria" class="hover:text-crimson transition-colors py-2" data-i18n="nav.experience">Experiencia</a>
+        <a href="#contacto" class="hover:text-crimson transition-colors py-2" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <!-- Right Controls: Language Switcher + CTA + Mobile Menu -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Compact Language Switcher (ES | PT | EN) -->
+        <div class="inline-flex items-center rounded-full bg-surface border border-hairline p-1 text-xs font-bold" role="group" aria-label="Language selector">
+          <button type="button" data-lang-btn="es" class="lang-btn px-2.5 py-1 rounded-full transition-colors">ES</button>
+          <button type="button" data-lang-btn="pt" class="lang-btn px-2.5 py-1 rounded-full transition-colors">PT</button>
+          <button type="button" data-lang-btn="en" class="lang-btn px-2.5 py-1 rounded-full transition-colors">EN</button>
+        </div>
+
+        <!-- Primary Crimson CTA -->
+        <a href="#contacto" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-crimson hover:bg-crimson-hover text-white text-sm font-bold tracking-tight transition-all shadow-sm hover:shadow-md" data-i18n="nav.cta">
+          Hablemos
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="xl:hidden inline-flex items-center justify-center p-2.5 rounded-xl border border-hairline text-ink hover:bg-surface transition-colors"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="xl:hidden hidden border-t border-hairline bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col gap-1.5 text-base font-semibold text-ink">
+        <a href="#inicio" class="mobile-link px-4 py-3 rounded-xl hover:bg-surface hover:text-crimson transition-colors" data-i18n="nav.about">Sobre mí</a>
+        <a href="#capacidades" class="mobile-link px-4 py-3 rounded-xl hover:bg-surface hover:text-crimson transition-colors" data-i18n="nav.capabilities">Capacidades</a>
+        <a href="#literatura" class="mobile-link px-4 py-3 rounded-xl hover:bg-surface hover:text-crimson transition-colors" data-i18n="nav.literature">Literatura</a>
+        <a href="#github" class="mobile-link px-4 py-3 rounded-xl hover:bg-surface hover:text-crimson transition-colors" data-i18n="nav.github">GitHub</a>
+        <a href="#trayectoria" class="mobile-link px-4 py-3 rounded-xl hover:bg-surface hover:text-crimson transition-colors" data-i18n="nav.experience">Experiencia</a>
+        <a href="#faq" class="mobile-link px-4 py-3 rounded-xl hover:bg-surface hover:text-crimson transition-colors" data-i18n="nav.faq">FAQ</a>
+        <div class="pt-3 mt-2 border-t border-hairline">
+          <a href="#contacto" class="mobile-link w-full inline-flex items-center justify-center px-5 py-3.5 rounded-full bg-crimson hover:bg-crimson-hover text-white font-bold transition-colors" data-i18n="nav.cta">
+            Hablemos
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- =========================================================
+         2. EDITORIAL TWO-COLUMN HERO SECTION
+    ========================================================== -->
+    <section class="relative bg-white pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-24 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+          <!-- Left Column: Editorial Copy -->
+          <div class="lg:col-span-7 space-y-7">
+            <!-- Eyebrow Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-crimson-soft border border-crimson/15 text-crimson text-xs sm:text-sm font-bold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-crimson"></span>
+              <span data-i18n="hero.eyebrow">Customer Experience · Full-Stack &amp; Datos · Autor</span>
+            </div>
+
+            <!-- Bold Headline -->
+            <h1 class="text-4xl sm:text-5xl lg:text-[3.35rem] font-extrabold tracking-tight text-ink leading-[1.08]">
+              <span data-i18n="hero.titleStart">Operaciones globales, ingeniería de datos y narrativa digital con</span>
+              <span class="font-serif italic font-semibold text-crimson" data-i18n="hero.titleAccent">precisión humana.</span>
+            </h1>
+
+            <!-- Concise Professional Summary -->
+            <p class="text-base sm:text-lg text-slatebody leading-relaxed max-w-2xl" data-i18n="hero.summary">
+              Profesional multidisciplinario con experiencia en Customer Experience, operaciones internacionales, mejora de procesos, ciencia de datos y desarrollo web. Autor de ficción latinoamericana y fundador de Editora Apapacho, conectando visión de negocio, tecnología y cultura en entornos multilingües.
+            </p>
+
+            <!-- Dual CTAs -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+              <a href="#github" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-crimson hover:bg-crimson-hover text-white text-sm sm:text-base font-bold transition-all shadow-sm hover:shadow-md">
+                <span data-i18n="hero.ctaPrimary">Ver proyectos en GitHub</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a href="#contacto" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white hover:bg-surface text-ink border border-ink/20 hover:border-ink text-sm sm:text-base font-bold transition-all">
+                <span data-i18n="hero.ctaSecondary">Contactar</span>
+              </a>
+            </div>
+
+            <!-- Trust Strip -->
+            <div class="pt-5 border-t border-hairline flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-slatebody">
+              <span class="font-bold text-ink uppercase tracking-wider text-[11px]" data-i18n="hero.experienceIn">Trayectoria en:</span>
+              <span>United Airlines</span>
+              <span class="text-hairline">•</span>
+              <span>ASSIST CARD</span>
+              <span class="text-hairline">•</span>
+              <span>Accenture</span>
+              <span class="text-hairline">•</span>
+              <span>Apapacho Digital</span>
+              <span class="text-hairline">•</span>
+              <span>Dgrau Digital</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Sleek Executive Profile Card with Geometric Logo Watermark -->
+          <div class="lg:col-span-5">
+            <div class="relative max-w-md mx-auto lg:ml-auto">
+              <!-- Subtle Offset Accent Frame -->
+              <div class="absolute -inset-2 sm:-inset-3 rounded-3xl border border-crimson/25 translate-x-2 translate-y-2 pointer-events-none" aria-hidden="true"></div>
+
+              <div class="relative bg-ink text-white rounded-3xl p-6 sm:p-8 shadow-editorial overflow-hidden border border-white/10">
+                <!-- Geometric Logo Watermark -->
+                <div class="absolute -right-8 -bottom-10 w-56 h-56 text-white/[0.06] pointer-events-none select-none" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <polygon points="16,11 47,21 16,31" fill="currentColor"/>
+                    <polygon points="16,34 49,23 49,41 16,52" fill="currentColor"/>
+                    <polygon points="16,55 49,44 49,62 16,73" fill="currentColor"/>
+                    <polygon points="18,76 49,65 49,87" fill="currentColor"/>
+                    <path d="M52 84.5 L80 75 V13" stroke="currentColor" stroke-width="4.5" stroke-linecap="square" stroke-linejoin="miter"/>
+                  </svg>
+                </div>
+
+                <!-- Card Header: Avatar + Name -->
+                <div class="relative z-10 flex items-center gap-4 pb-6 border-b border-white/10">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/90584688?v=4"
+                    alt="Sabuat Urbina Ribeiro"
+                    class="w-16 h-16 rounded-2xl object-cover border border-white/20 bg-white/10 shrink-0"
+                    onerror="this.onerror=null;this.src='https://placehold.co/160x160/111111/FFFFFF?text=SU';"
+                  />
+                  <div class="min-w-0">
+                    <div class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-crimson mb-1">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span data-i18n="card.availability">Disponible · Remoto / Internacional</span>
+                    </div>
+                    <h2 class="text-lg sm:text-xl font-extrabold tracking-tight text-white truncate">Sabuat Urbina Ribeiro</h2>
+                    <p class="text-xs text-white/70 truncate" data-i18n="card.subtitle">São Paulo, Brasil · Equipos Globales</p>
+                  </div>
+                </div>
+
+                <!-- Executive Highlights -->
+                <div class="relative z-10 space-y-5 py-6">
+                  <div>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-crimson mb-1.5" data-i18n="card.locationLabel">Ubicación &amp; Modalidad</p>
+                    <p class="text-sm text-white/90 font-medium" data-i18n="card.locationValue">São Paulo, Brasil · Operación remota e internacional</p>
+                  </div>
+
+                  <div>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-crimson mb-2" data-i18n="card.languagesLabel">Idiomas de Trabajo</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs font-semibold text-white" data-i18n="card.langEsPt">ES / PT · Nativo</span>
+                      <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs font-semibold text-white" data-i18n="card.langEn">EN · Profesional</span>
+                      <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-white/75" data-i18n="card.langFr">FR · Básico</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-crimson mb-1.5" data-i18n="card.focusLabel">Enfoque Actual</p>
+                    <p class="text-sm text-white/85 leading-relaxed" data-i18n="card.focusValue">
+                      Ciencia de Datos (UFMS), Posgrado en Mecatrónica (CENES), Productos Digitales y Editora Apapacho.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card Footer Quick Links -->
+                <div class="relative z-10 pt-5 border-t border-white/10 flex items-center justify-between gap-3 text-xs font-bold">
+                  <a href="https://github.com/sabuat" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors inline-flex items-center gap-1.5">
+                    <span>github.com/sabuat</span>
+                    <span class="text-crimson" aria-hidden="true">↗</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/sabuat-urbina-ribeiro" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors inline-flex items-center gap-1.5">
+                    <span>LinkedIn</span>
+                    <span class="text-crimson" aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. METRICS / IMPACT BAR (LadyBugz Editorial Strip)
+    ========================================================== -->
+    <section class="bg-surface border-y border-hairline py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-hairline bg-white rounded-3xl border border-hairline shadow-editorial overflow-hidden">
+          <!-- Stat 1 -->
+          <div class="p-6 sm:p-8">
+            <p class="text-4xl sm:text-5xl font-extrabold tracking-tight text-crimson mb-2">15+</p>
+            <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-ink" data-i18n="metrics.yearsTitle">Años en Operaciones &amp; CX</p>
+            <p class="text-xs text-slatebody mt-1" data-i18n="metrics.yearsDesc">Aviación, asistencia, compras y tecnología</p>
+          </div>
+          <!-- Stat 2 -->
+          <div class="p-6 sm:p-8">
+            <p id="metricReposCount" class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink mb-2">50+</p>
+            <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-ink" data-i18n="metrics.reposTitle">Repositorios en GitHub</p>
+            <p class="text-xs text-slatebody mt-1" data-i18n="metrics.reposDesc">Código abierto, web y pipelines de datos</p>
+          </div>
+          <!-- Stat 3 -->
+          <div class="p-6 sm:p-8">
+            <p class="text-4xl sm:text-5xl font-extrabold tracking-tight text-crimson mb-2">3</p>
+            <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-ink" data-i18n="metrics.langsTitle">Idiomas de Trabajo</p>
+            <p class="text-xs text-slatebody mt-1" data-i18n="metrics.langsDesc">ES · PT (Nativos) · EN (Profesional)</p>
+          </div>
+          <!-- Stat 4 -->
+          <div class="p-6 sm:p-8">
+            <p class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink mb-2">2</p>
+            <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-ink" data-i18n="metrics.platformsTitle">Plataformas Literarias</p>
+            <p class="text-xs text-slatebody mt-1" data-i18n="metrics.platformsDesc">Amazon Kindle y Apapacho Reader</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. WHAT I DO / CORE PILLARS (3 Structured Cards)
+    ========================================================== -->
+    <section id="capacidades" class="bg-white py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+          <div class="max-w-2xl">
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-crimson mb-3" data-i18n="pillars.eyebrow">Qué hago · Capacidades</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink leading-tight" data-i18n="pillars.title">
+              Tres pilares que unen negocio, tecnología y personas
+            </h2>
+          </div>
+          <p class="text-sm sm:text-base text-slatebody max-w-md" data-i18n="pillars.subtitle">
+            Visión integral desde la operación diaria con clientes hasta la arquitectura de productos y el análisis de datos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <!-- Pillar 1 -->
+          <article class="group bg-surface rounded-3xl border border-hairline border-t-4 border-t-crimson p-8 flex flex-col justify-between hover:bg-white hover:shadow-cardHover transition-all duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-crimson-soft text-crimson flex items-center justify-center mb-6 group-hover:bg-crimson group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-crimson">01</span>
+              <h3 class="text-xl font-extrabold text-ink mt-1.5 mb-3" data-i18n="pillars.p1Title">Customer Experience &amp; Operaciones Internacionales</h3>
+              <p class="text-sm sm:text-base text-slatebody leading-relaxed" data-i18n="pillars.p1Desc">
+                Operaciones en aviación, asistencia médica internacional, compras tercerizadas (procurement) y soporte en equipos multiculturales, resolviendo casos complejos con empatía y rigor.
+              </p>
+            </div>
+            <div class="mt-8 pt-5 border-t border-hairline flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">United Airlines</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">ASSIST CARD</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">Accenture</span>
+            </div>
+          </article>
+
+          <!-- Pillar 2 -->
+          <article class="group bg-surface rounded-3xl border border-hairline border-t-4 border-t-ink p-8 flex flex-col justify-between hover:bg-white hover:shadow-cardHover transition-all duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-ink/5 text-ink flex items-center justify-center mb-6 group-hover:bg-ink group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-crimson">02</span>
+              <h3 class="text-xl font-extrabold text-ink mt-1.5 mb-3" data-i18n="pillars.p2Title">Productos Digitales &amp; Desarrollo Full-Stack</h3>
+              <p class="text-sm sm:text-base text-slatebody leading-relaxed" data-i18n="pillars.p2Desc">
+                Concepción de producto, arquitectura web, diseño UX/UI e implementación con JavaScript, TypeScript, React, Next.js, Node.js, Python y Supabase para plataformas modernas y escalables.
+              </p>
+            </div>
+            <div class="mt-8 pt-5 border-t border-hairline flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">React / Next.js</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">Supabase</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">UX / UI</span>
+            </div>
+          </article>
+
+          <!-- Pillar 3 -->
+          <article class="group bg-surface rounded-3xl border border-hairline border-t-4 border-t-crimson p-8 flex flex-col justify-between hover:bg-white hover:shadow-cardHover transition-all duration-200">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-crimson-soft text-crimson flex items-center justify-center mb-6 group-hover:bg-crimson group-hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-widest text-crimson">03</span>
+              <h3 class="text-xl font-extrabold text-ink mt-1.5 mb-3" data-i18n="pillars.p3Title">Ciencia de Datos &amp; Ingeniería de Procesos</h3>
+              <p class="text-sm sm:text-base text-slatebody leading-relaxed" data-i18n="pillars.p3Desc">
+                Optimización de flujos, SQL/MySQL, pipelines de datos en Python y automatización apoyada en formación en Ciencia de Datos (UFMS) y posgrado en Mecatrónica.
+              </p>
+            </div>
+            <div class="mt-8 pt-5 border-t border-hairline flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">Python &amp; SQL</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">Pipelines</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-hairline text-xs font-semibold text-ink">Mecatrónica</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. WRITER & LITERARY CAREER SECTION (Dark Editorial Band)
+    ========================================================== -->
+    <section id="literatura" class="bg-ink text-white py-20 sm:py-28 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Top Grid: Literary Narrative + Blockquote -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-14">
+          <div class="lg:col-span-7 space-y-6">
+            <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-crimson" data-i18n="writer.eyebrow">Escritor &amp; Literatura</p>
+            <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-[1.12]">
+              <span data-i18n="writer.titleStart">Ficción latinoamericana entre</span>
+              <span class="font-serif italic font-normal text-crimson" data-i18n="writer.titleAccent">el español, el portugués y el código.</span>
+            </h2>
+            <p class="text-base sm:text-lg text-white/80 leading-relaxed" data-i18n="writer.p1">
+              Además de mi trabajo en operaciones y tecnología, desarrollo una trayectoria literaria como escritor de narrativa breve latinoamericana —incluyendo la obra <em class="font-serif italic text-white">A cidade das gaivotas</em>—, explorando la memoria, el tránsito entre lenguas y la sensibilidad contemporánea del continente.
+            </p>
+            <p class="text-base text-white/75 leading-relaxed" data-i18n="writer.p2">
+              Como fundador de <strong class="text-white">Editora Apapacho (Apapacho Digital)</strong>, diseñé y construí desde cero una editorial digital independiente dedicada a conectar la literatura latinoamericana con lectores de todo el mundo mediante tecnología web propia.
+            </p>
+          </div>
+
+          <div class="lg:col-span-5 lg:pt-8">
+            <div class="bg-white/[0.04] border border-white/10 rounded-3xl p-7 sm:p-8">
+              <div class="border-l-4 border-crimson pl-5">
+                <blockquote class="font-serif italic text-xl sm:text-2xl leading-relaxed text-white" data-i18n="writer.quote">
+                  “La precisión de la ingeniería y el pulso de la literatura comparten el mismo propósito: construir estructuras claras donde la experiencia humana cobre sentido.”
+                </blockquote>
+              </div>
+              <p class="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-white/50" data-i18n="writer.quoteAuthor">
+                Sabuat Urbina · Autor &amp; Fundador de Editora Apapacho
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Prominent Literary Platform Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <!-- Platform 1: Amazon Kindle -->
+          <article class="bg-white/[0.05] hover:bg-white/[0.08] border border-white/12 rounded-3xl p-8 flex flex-col justify-between transition-all duration-200">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-5">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-crimson/20 border border-crimson/40 text-white text-xs font-bold uppercase tracking-wider" data-i18n="writer.kindleBadge">
+                  Ediciones Globales
+                </span>
+                <svg class="w-7 h-7 text-crimson" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white mb-3">Amazon Kindle</h3>
+              <p class="text-sm sm:text-base text-white/75 leading-relaxed" data-i18n="writer.kindleDesc">
+                Ediciones digitales de mis obras literarias disponibles globalmente para dispositivos y aplicaciones Kindle, acercando relatos como <em class="font-serif italic text-white">A cidade das gaivotas</em> a lectores en español y portugués.
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <a
+                href="https://www.amazon.com/s?k=Sabuat+Urbina&i=digital-text"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-crimson hover:bg-crimson-hover text-white text-sm font-bold transition-colors"
+              >
+                <span data-i18n="writer.kindleCta">Explorar en Amazon Kindle</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Platform 2: Apapacho Reader -->
+          <article class="bg-white/[0.05] hover:bg-white/[0.08] border border-white/12 rounded-3xl p-8 flex flex-col justify-between transition-all duration-200">
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-5">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider" data-i18n="writer.apapachoBadge">
+                  Ecosistema Propio
+                </span>
+                <svg class="w-7 h-7 text-crimson" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white mb-3">Apapacho Reader</h3>
+              <p class="text-sm sm:text-base text-white/75 leading-relaxed" data-i18n="writer.apapachoDesc">
+                Plataforma y lector digital propio (<code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">apapacho-web</code> · <code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">reader-app</code>) creado para Editora Apapacho, diseñado para ofrecer una experiencia de lectura limpia, fluida y sin distracciones para la literatura latinoamericana.
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-3">
+              <a
+                href="https://app.editorialapapacho.com/home"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-ink hover:bg-crimson hover:text-white text-sm font-bold transition-colors"
+              >
+                <span data-i18n="writer.apapachoCta">Ler mais OnLine</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. LIVE GITHUB PORTFOLIO (github.com/sabuat)
+    ========================================================== -->
+    <section id="github" class="bg-surface py-20 sm:py-24 border-b border-hairline">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header + Live Stats -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-crimson mb-2" data-i18n="github.eyebrow">Portafolio Técnico · Código Abierto</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink" data-i18n="github.title">Proyectos en GitHub</h2>
+          </div>
+
+          <!-- Language Filter Pills -->
+          <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter repositories">
+            <button type="button" data-filter="all" class="repo-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-ink text-white transition-colors" data-i18n="github.filterAll">Todos</button>
+            <button type="button" data-filter="js" class="repo-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-slatebody border border-hairline hover:border-ink hover:text-ink transition-colors">JavaScript / TS</button>
+            <button type="button" data-filter="python" class="repo-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-slatebody border border-hairline hover:border-ink hover:text-ink transition-colors">Python</button>
+            <button type="button" data-filter="html" class="repo-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-slatebody border border-hairline hover:border-ink hover:text-ink transition-colors">HTML / CSS</button>
+          </div>
+        </div>
+
+        <!-- Live API Status Bar -->
+        <div class="bg-white rounded-2xl border border-hairline px-5 py-4 mb-7 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
+          <div id="githubStatus" class="inline-flex items-center gap-2 text-slatebody">
+            <span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+            <span data-i18n="github.syncing">Sincronizando repositorios en vivo desde github.com/sabuat...</span>
+          </div>
+          <div class="flex items-center gap-4 font-bold text-ink">
+            <span><span data-i18n="github.reposLabel">Repositorios:</span> <strong id="liveRepoTotal" class="text-crimson">50+</strong></span>
+            <span class="text-hairline">|</span>
+            <span><span data-i18n="github.starsLabel">Estrellas:</span> <strong id="liveStarsTotal" class="text-crimson">—</strong></span>
+          </div>
+        </div>
+
+        <!-- Dynamic Repos Grid -->
+        <div id="reposGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- View All CTA -->
+        <div class="mt-10 text-center">
+          <a
+            href="https://github.com/sabuat?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white hover:bg-ink text-ink hover:text-white border border-ink/20 hover:border-ink text-sm font-bold transition-all shadow-sm"
+          >
+            <span data-i18n="github.viewAll">Ver todos los repositorios en GitHub</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. EXPERIENCE & EDUCATION (Interactive Tabs)
+    ========================================================== -->
+    <section id="trayectoria" class="bg-white py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header + Tab Switcher -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-crimson mb-2" data-i18n="career.eyebrow">Recorrido Profesional</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink" data-i18n="career.title">Experiencia y Formación</h2>
+          </div>
+
+          <!-- Interactive Tabs -->
+          <div class="inline-flex p-1.5 rounded-full bg-surface border border-hairline self-start md:self-auto" role="tablist" aria-label="Experience and Education">
+            <button
+              id="tabBtnExperience"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panelExperience"
+              class="px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-crimson text-white transition-all"
+              data-i18n="career.tabExp"
+            >
+              Experiencia Profesional
+            </button>
+            <button
+              id="tabBtnEducation"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panelEducation"
+              class="px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slatebody hover:text-ink transition-all"
+              data-i18n="career.tabEdu"
+            >
+              Formación y Certificaciones
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 1: Experience Cards (rendered dynamically per language) -->
+        <div id="panelExperience" role="tabpanel" aria-labelledby="tabBtnExperience" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+        <!-- Tab 2: Education & Certifications (rendered dynamically per language) -->
+        <div id="panelEducation" role="tabpanel" aria-labelledby="tabBtnEducation" class="hidden space-y-8">
+          <div id="educationGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+          <div class="bg-surface rounded-3xl border border-hairline p-7 sm:p-8">
+            <h3 class="text-xs font-extrabold uppercase tracking-[0.2em] text-crimson mb-5" data-i18n="career.certsTitle">Certificaciones Destacadas</h3>
+            <ul id="certificationsList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm font-semibold text-ink"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. FAQ ACCORDION (LadyBugz Style)
+    ========================================================== -->
+    <section id="faq" class="bg-surface border-t border-hairline py-20 sm:py-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-crimson mb-2" data-i18n="faq.eyebrow">Preguntas Frecuentes</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink" data-i18n="faq.title">Lo esencial sobre mi trabajo</h2>
+        </div>
+
+        <div id="faqList" class="space-y-3.5">
+          <!-- Populated dynamically per language -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         9. HIGH-IMPACT DARK CONTACT CTA SECTION
+    ========================================================== -->
+    <section id="contacto" class="bg-white py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative bg-ink text-white rounded-3xl p-8 sm:p-14 lg:p-16 overflow-hidden shadow-editorial border border-white/10">
+          <!-- Subtle Decorative Crimson Glow -->
+          <div class="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-crimson/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-7 space-y-4">
+              <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-crimson" data-i18n="contact.eyebrow">Contacto Directo</p>
+              <h2 class="text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-tight leading-tight" data-i18n="contact.title">
+                ¿Construimos tu próximo proyecto o fortalecemos tu operación?
+              </h2>
+              <p class="text-white/75 text-base sm:text-lg leading-relaxed max-w-2xl" data-i18n="contact.subtitle">
+                Abierto a oportunidades en Customer Experience, Operaciones Internacionales, Soporte Técnico, Mejora de Procesos, Datos y Desarrollo Web, así como colaboraciones editoriales.
+              </p>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col gap-3.5">
+              <a
+                href="mailto:sabuaturbina@yahoo.com"
+                class="w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-crimson hover:bg-crimson-hover text-white text-sm sm:text-base font-extrabold transition-colors shadow-sm"
+              >
+                <span data-i18n="contact.emailBtn">Enviar correo electrónico</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <div class="grid grid-cols-2 gap-3">
+                <a
+                  href="https://www.linkedin.com/in/sabuat-urbina-ribeiro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold transition-colors"
+                >
+                  <span>LinkedIn</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a
+                  href="https://wa.me/5511986633936"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold transition-colors"
+                >
+                  <span>WhatsApp</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Info & Copy Helper -->
+          <div class="relative z-10 mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs sm:text-sm text-white/75">
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <a href="mailto:sabuaturbina@yahoo.com" class="hover:text-white transition-colors font-semibold">sabuaturbina@yahoo.com</a>
+              <span class="hidden sm:inline text-white/25">|</span>
+              <a href="tel:+5511986633936" class="hover:text-white transition-colors font-semibold">+55 11 98663-3936</a>
+              <span class="hidden sm:inline text-white/25">|</span>
+              <a href="https://github.com/sabuat" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors font-semibold">github.com/sabuat</a>
+            </div>
+            <button
+              id="copyEmailBtn"
+              type="button"
+              class="self-start sm:self-auto inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-crimson text-white text-xs font-bold transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span data-i18n="contact.copyEmail">Copiar correo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       10. CLEAN DARK FOOTER WITH GEOMETRIC LOGO
+  ========================================================== -->
+  <footer class="bg-ink text-white/75 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+        <!-- Brand Column -->
+        <div class="md:col-span-5 space-y-4">
+          <a href="#inicio" class="inline-flex items-center gap-3 text-white">
+            <span class="w-9 h-9 rounded-xl bg-white/10 p-1.5 flex items-center justify-center text-white">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
+                <polygon points="16,11 47,21 16,31" fill="currentColor"/>
+                <polygon points="16,34 49,23 49,41 16,52" fill="currentColor"/>
+                <polygon points="16,55 49,44 49,62 16,73" fill="currentColor"/>
+                <polygon points="18,76 49,65 49,87" fill="currentColor"/>
+                <path d="M52 84.5 L80 75 V13" stroke="currentColor" stroke-width="4.5" stroke-linecap="square" stroke-linejoin="miter"/>
+              </svg>
+            </span>
+            <span class="text-base font-extrabold tracking-wider uppercase text-white">SABUAT URBINA</span>
+          </a>
+          <p class="text-sm leading-relaxed max-w-sm" data-i18n="footer.bio">
+            Customer Experience, Operaciones Internacionales, Ciencia de Datos, Desarrollo Web y Literatura Latinoamericana.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-[0.2em] text-white" data-i18n="footer.linksTitle">Navegación</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#capacidades" class="hover:text-crimson transition-colors" data-i18n="nav.capabilities">Capacidades</a></li>
+            <li><a href="#literatura" class="hover:text-crimson transition-colors" data-i18n="nav.literature">Literatura</a></li>
+            <li><a href="#github" class="hover:text-crimson transition-colors" data-i18n="nav.github">GitHub</a></li>
+            <li><a href="#trayectoria" class="hover:text-crimson transition-colors" data-i18n="nav.experience">Experiencia</a></li>
+            <li><a href="#faq" class="hover:text-crimson transition-colors" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Direct Channels -->
+        <div class="md:col-span-4 space-y-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-[0.2em] text-white" data-i18n="footer.channelsTitle">Canales</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:sabuaturbina@yahoo.com" class="hover:text-white transition-colors">sabuaturbina@yahoo.com</a></li>
+            <li><a href="tel:+5511986633936" class="hover:text-white transition-colors">+55 11 98663-3936</a></li>
+            <li><a href="https://www.linkedin.com/in/sabuat-urbina-ribeiro" target="_blank" rel="noopener noreferrer" class="hover:text-crimson transition-colors">linkedin.com/in/sabuat-urbina-ribeiro</a></li>
+            <li><a href="https://github.com/sabuat" target="_blank" rel="noopener noreferrer" class="hover:text-crimson transition-colors">github.com/sabuat</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+        <p data-i18n="footer.copyright">© 2026 Sabuat Urbina Ribeiro. Todos los derechos reservados.</p>
+        <p data-i18n="footer.langHint">Idioma detectado automáticamente según tu navegador (ES · PT · EN).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div
+    id="toastMessage"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-6 right-6 z-50 translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-ink text-white text-sm font-semibold px-5 py-3 rounded-full shadow-lg border border-white/15 flex items-center gap-2.5"
+  >
+    <span class="w-2.5 h-2.5 rounded-full bg-crimson"></span>
+    <span id="toastText"></span>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT: Complete i18n (OS Auto-Detection), Dynamic Content,
+       Tabs, FAQ Accordion & Live GitHub API Integration
+  ========================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* -------------------------------------------------------
+         1. COMPLETE I18N DICTIONARY (ES / PT / EN)
+      ------------------------------------------------------- */
+      const I18N = {
+        es: {
+          meta: {
+            title: 'Sabuat Urbina Ribeiro — Customer Experience, Datos, Producto Digital y Literatura',
+            description: 'Portafolio profesional y literario de Sabuat Urbina Ribeiro. Customer Experience, Operaciones Internacionales, Ciencia de Datos, Desarrollo Web y Literatura Latinoamericana.'
+          },
+          brand: { tagline: 'CX · Datos · Autor' },
+          nav: {
+            about: 'Sobre mí',
+            capabilities: 'Capacidades',
+            literature: 'Literatura',
+            github: 'GitHub',
+            experience: 'Experiencia',
+            faq: 'FAQ',
+            contact: 'Contacto',
+            cta: 'Hablemos'
+          },
+          hero: {
+            eyebrow: 'Customer Experience · Full-Stack & Datos · Autor',
+            titleStart: 'Operaciones globales, ingeniería de datos y narrativa digital con ',
+            titleAccent: 'precisión humana.',
+            summary: 'Profesional multidisciplinario con experiencia en Customer Experience, operaciones internacionales, mejora de procesos, ciencia de datos y desarrollo web. Autor de ficción latinoamericana y fundador de Editora Apapacho, conectando visión de negocio, tecnología y cultura en entornos multilingües.',
+            ctaPrimary: 'Ver proyectos en GitHub',
+            ctaSecondary: 'Contactar',
+            experienceIn: 'Trayectoria en:'
+          },
+          card: {
+            availability: 'Disponible · Remoto / Internacional',
+            subtitle: 'São Paulo, Brasil · Equipos Globales',
+            locationLabel: 'Ubicación & Modalidad',
+            locationValue: 'São Paulo, Brasil · Operación remota e internacional',
+            languagesLabel: 'Idiomas de Trabajo',
+            langEsPt: 'ES / PT · Nativo',
+            langEn: 'EN · Profesional',
+            langFr: 'FR · Básico',
+            focusLabel: 'Enfoque Actual',
+            focusValue: 'Ciencia de Datos (UFMS), Posgrado en Mecatrónica (CENES), Productos Digitales y Editora Apapacho.'
+          },
+          metrics: {
+            yearsTitle: 'Años en Operaciones & CX',
+            yearsDesc: 'Aviación, asistencia, compras y tecnología',
+            reposTitle: 'Repositorios en GitHub',
+            reposDesc: 'Código abierto, web y pipelines de datos',
+            langsTitle: 'Idiomas de Trabajo',
+            langsDesc: 'ES · PT (Nativos) · EN (Profesional)',
+            platformsTitle: 'Plataformas Literarias',
+            platformsDesc: 'Amazon Kindle y Apapacho Reader'
+          },
+          pillars: {
+            eyebrow: 'Qué hago · Capacidades',
+            title: 'Tres pilares que unen negocio, tecnología y personas',
+            subtitle: 'Visión integral desde la operación diaria con clientes hasta la arquitectura de productos y el análisis de datos.',
+            p1Title: 'Customer Experience & Operaciones Internacionales',
+            p1Desc: 'Operaciones en aviación, asistencia médica internacional, compras tercerizadas (procurement) y soporte en equipos multiculturales, resolviendo casos complejos con empatía y rigor.',
+            p2Title: 'Productos Digitales & Desarrollo Full-Stack',
+            p2Desc: 'Concepción de producto, arquitectura web, diseño UX/UI e implementación con JavaScript, TypeScript, React, Next.js, Node.js, Python y Supabase para plataformas modernas y escalables.',
+            p3Title: 'Ciencia de Datos & Ingeniería de Procesos',
+            p3Desc: 'Optimización de flujos, SQL/MySQL, pipelines de datos en Python y automatización apoyada en formación en Ciencia de Datos (UFMS) y posgrado en Mecatrónica.'
+          },
+          writer: {
+            eyebrow: 'Escritor & Literatura',
+            titleStart: 'Ficción latinoamericana entre ',
+            titleAccent: 'el español, el portugués y el código.',
+            p1: 'Además de mi trabajo en operaciones y tecnología, desarrollo una trayectoria literaria como escritor de narrativa breve latinoamericana —incluyendo la obra <em class="font-serif italic text-white">A cidade das gaivotas</em>—, explorando la memoria, el tránsito entre lenguas y la sensibilidad contemporánea del continente.',
+            p2: 'Como fundador de <strong class="text-white">Editora Apapacho (Apapacho Digital)</strong>, diseñé y construí desde cero una editorial digital independiente dedicada a conectar la literatura latinoamericana con lectores de todo el mundo mediante tecnología web propia.',
+            quote: '“La precisión de la ingeniería y el pulso de la literatura comparten el mismo propósito: construir estructuras claras donde la experiencia humana cobre sentido.”',
+            quoteAuthor: 'Sabuat Urbina · Autor & Fundador de Editora Apapacho',
+            kindleBadge: 'Ediciones Globales',
+            kindleDesc: 'Ediciones digitales de mis obras literarias disponibles globalmente para dispositivos y aplicaciones Kindle, acercando relatos como <em class="font-serif italic text-white">A cidade das gaivotas</em> a lectores en español y portugués.',
+            kindleCta: 'Explorar en Amazon Kindle',
+            apapachoBadge: 'Ecosistema Propio',
+            apapachoDesc: 'Plataforma y lector digital propio (<code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">apapacho-web</code> · <code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">reader-app</code>) creado para Editora Apapacho, diseñado para ofrecer una experiencia de lectura limpia, fluida y sin distracciones para la literatura latinoamericana.',
+            apapachoCta: 'Leer más en Línea'
+          },
+          github: {
+            eyebrow: 'Portafolio Técnico · Código Abierto',
+            title: 'Proyectos en GitHub',
+            filterAll: 'Todos',
+            syncing: 'Sincronizando repositorios en vivo desde github.com/sabuat...',
+            syncedLive: 'Sincronizado en vivo desde la API de GitHub (@sabuat)',
+            fallbackNotice: 'Mostrando selección destacada de github.com/sabuat',
+            reposLabel: 'Repositorios:',
+            starsLabel: 'Estrellas:',
+            updated: 'Actualizado:',
+            viewCode: 'Ver código',
+            viewAll: 'Ver todos los repositorios en GitHub',
+            emptyFilter: 'No hay repositorios recientes en esta categoría.',
+            defaultDesc: 'Proyecto público en github.com/sabuat enfocado en código limpio, arquitectura y mejora continua.'
+          },
+          career: {
+            eyebrow: 'Recorrido Profesional',
+            title: 'Experiencia y Formación',
+            tabExp: 'Experiencia Profesional',
+            tabEdu: 'Formación y Certificaciones',
+            certsTitle: 'Certificaciones Destacadas',
+            experience: [
+              {
+                period: 'oct 2024 – Presente',
+                location: 'São Paulo, Brasil',
+                role: 'Desarrollador de Producto Digital & Fundador',
+                company: 'Apapacho Digital (Editora Apapacho)',
+                current: true,
+                bullets: [
+                  'Creación y lanzamiento de una editorial digital independiente enfocada en literatura latinoamericana.',
+                  'Arquitectura de producto, diseño UX/UI, identidad visual y desarrollo full-stack de plataforma web y lector digital.',
+                  'Estrategia editorial, flujo de publicación y evolución tecnológica continua.'
+                ]
+              },
+              {
+                period: 'abr 2022 – Presente',
+                location: 'São Paulo, Brasil',
+                role: 'Traductor Trilingüe',
+                company: 'Dgrau Digital',
+                current: true,
+                bullets: [
+                  'Traducción y adaptación cultural de catálogos, documentos y marketing para una marca mexicana de muebles de lujo.',
+                  'Apoyo a la expansión internacional y consistencia terminológica en múltiples mercados.'
+                ]
+              },
+              {
+                period: 'jun 2023 – oct 2026',
+                location: 'São Paulo, Brasil',
+                role: 'Reservation Sales & Services Representative',
+                company: 'United Airlines',
+                bullets: [
+                  'Operaciones de reservas internacionales con foco en Customer Experience y resolución de itinerarios complejos.',
+                  'Asesoría en vuelos, tarifas, equipajes, cambios y procesamiento de pagos en entorno multilingüe.'
+                ]
+              },
+              {
+                period: 'ene 2023 – ene 2024',
+                location: 'Brasil',
+                role: 'Front End Frameworks Tutor',
+                company: 'Araguaney Escola Digital',
+                bullets: [
+                  'Mentoría técnica y acompañamiento pedagógico a estudiantes en desarrollo web y frameworks front-end.',
+                  'Revisión práctica de proyectos y resolución de dudas de arquitectura UI.'
+                ]
+              },
+              {
+                period: 'nov 2019 – jul 2023',
+                location: 'São Paulo, Brasil',
+                role: 'Coordinador Trilingüe',
+                company: 'ASSIST CARD',
+                bullets: [
+                  'Coordinación de asistencia médica internacional para viajeros, articulando hospitales, médicos y prestadores globales.',
+                  'Análisis de cláusulas contractuales, presupuestos, negociación y seguimiento de pagos.'
+                ]
+              },
+              {
+                period: 'oct 2021 – jun 2022',
+                location: 'São Paulo, Brasil',
+                role: 'Analista de Compras (Procurement)',
+                company: 'Accenture Brasil',
+                bullets: [
+                  'Operaciones de compras tercerizadas para una multinacional del sector farmacéutico.',
+                  'Análisis de documentos de compra, facturas, conciliación contable y enlace con producción, logística y finanzas.'
+                ]
+              },
+              {
+                period: '2009 – 2019',
+                location: 'Brasil & Venezuela',
+                role: 'Liderazgo de Proyectos, Educación & Gestión',
+                company: 'MultCursos · IUTAR · Inces Sede · AVDigital · HeteroFriendly e-Magz',
+                wide: true,
+                bullets: [
+                  'Project Manager en MultCursos liderando la migración de educación presencial a plataformas digitales y capacitación docente.',
+                  'Docente en IUTAR (3 niveles académicos) y Jefe de División en Inces Sede gestionando planificación y presupuestos de formación.',
+                  'Marketing & Finance Administrator en AVDigital (conciliación contable, inventarios y proveedores) y Diseñador Gráfico de Producto en HeteroFriendly e-Magz.'
+                ]
+              }
+            ],
+            education: [
+              {
+                period: 'feb 2024 – nov 2026',
+                degree: 'Bachelor of Technology (BTech) — Ciencia de Datos',
+                institution: 'Universidade Federal de Mato Grosso do Sul (UFMS)',
+                highlight: true,
+                desc: 'Formación superior tecnológica en análisis de datos, estadística, bases de datos, Python y toma de decisiones basada en evidencia.'
+              },
+              {
+                period: 'oct 2026 – jun 2027 · En curso',
+                degree: 'Posgrado en Mecatrónica',
+                institution: 'CENES Pós-Graduação',
+                highlight: true,
+                desc: 'Especialización de posgrado enfocada en automatización, integración de sistemas e ingeniería de procesos.'
+              },
+              {
+                period: '2005 – 2009',
+                degree: 'Bachelor of Business Administration (BBA)',
+                institution: 'Universidad de los Andes (Venezuela)',
+                desc: 'Base sólida en administración de empresas, finanzas, planificación estratégica y gestión operativa.'
+              },
+              {
+                period: '2022 – 2023',
+                degree: 'Desarrollador Front End & Gestión de Talentos',
+                institution: 'Alura (2022–2023) · Cruzeiro do Sul Virtual (2023)',
+                desc: 'Especialización práctica en HTML5, CSS3, JavaScript y React (Alura) combinada con Competencia y Gestión de Talentos (Cruzeiro do Sul).'
+              }
+            ],
+            certifications: [
+              'Gestión de Infraestructura de TI',
+              'SQL con MySQL Server — Oracle ONE',
+              'Formación en Emprendimiento T4 — ONE',
+              'Introduction to UI/UX',
+              'Coaching and Developing Employees'
+            ]
+          },
+          faq: {
+            eyebrow: 'Preguntas Frecuentes',
+            title: 'Lo esencial sobre mi trabajo',
+            items: [
+              {
+                q: '¿A qué tipo de roles y proyectos estoy abierto?',
+                a: 'Estoy abierto a oportunidades en Customer Experience (CX), Operaciones Internacionales, Soporte Técnico, Mejora de Procesos, Análisis de Datos y Desarrollo Web/Producto Digital, tanto en equipos corporativos internacionales como en proyectos digitales y editoriales.'
+              },
+              {
+                q: '¿Cómo se conectan CX, Datos y Desarrollo Full-Stack en mi perfil?',
+                a: 'La experiencia directa con clientes y operaciones complejas revela dónde están las fricciones reales. Mi formación en Administración, Ciencia de Datos y Desarrollo Web me permite convertir esos hallazgos en procesos más claros, métricas accionables y herramientas digitales funcionales.'
+              },
+              {
+                q: '¿Dónde puedo leer tus libros y proyectos literarios?',
+                a: 'Mis obras literarias —incluyendo A cidade das gaivotas— están disponibles en formato digital en Amazon Kindle, y forman parte del ecosistema de lectura independiente de Editora Apapacho (Apapacho Reader), desarrollado con tecnología web propia.'
+              },
+              {
+                q: '¿En qué idiomas trabajas?',
+                a: 'Trabajo con fluidez nativa/bilingüe en Español y Portugués, nivel profesional completo en Inglés y nociones básicas de Francés, con amplia experiencia colaborando con equipos remotos y multiculturales.'
+              }
+            ]
+          },
+          contact: {
+            eyebrow: 'Contacto Directo',
+            title: '¿Construimos tu próximo proyecto o fortalecemos tu operación?',
+            subtitle: 'Abierto a oportunidades en Customer Experience, Operaciones Internacionales, Soporte Técnico, Mejora de Procesos, Datos y Desarrollo Web, así como colaboraciones editoriales.',
+            emailBtn: 'Enviar correo electrónico',
+            copyEmail: 'Copiar correo',
+            copiedToast: 'Correo copiado: sabuaturbina@yahoo.com'
+          },
+          footer: {
+            bio: 'Customer Experience, Operaciones Internacionales, Ciencia de Datos, Desarrollo Web y Literatura Latinoamericana.',
+            linksTitle: 'Navegación',
+            channelsTitle: 'Canales',
+            copyright: '© 2026 Sabuat Urbina Ribeiro. Todos los derechos reservados.',
+            langHint: 'Idioma detectado automáticamente según tu navegador (ES · PT · EN).'
+          }
+        },
+
+        pt: {
+          meta: {
+            title: 'Sabuat Urbina Ribeiro — Customer Experience, Dados, Produto Digital e Literatura',
+            description: 'Portfólio profissional e literário de Sabuat Urbina Ribeiro. Customer Experience, Operações Internacionais, Ciência de Dados, Desenvolvimento Web e Literatura Latino-Americana.'
+          },
+          brand: { tagline: 'CX · Dados · Autor' },
+          nav: {
+            about: 'Sobre mim',
+            capabilities: 'Especialidades',
+            literature: 'Literatura',
+            github: 'GitHub',
+            experience: 'Experiência',
+            faq: 'FAQ',
+            contact: 'Contato',
+            cta: 'Conversar'
+          },
+          hero: {
+            eyebrow: 'Customer Experience · Full-Stack & Dados · Autor',
+            titleStart: 'Operações globais, engenharia de dados e narrativa digital com ',
+            titleAccent: 'precisão humana.',
+            summary: 'Profissional multidisciplinar com experiência em Customer Experience, operações internacionais, melhoria de processos, ciência de dados e desenvolvimento web. Autor de ficção latino-americana e fundador da Editora Apapacho, conectando visão de negócio, tecnologia e cultura em ambientes multilíngues.',
+            ctaPrimary: 'Ver projetos no GitHub',
+            ctaSecondary: 'Entrar em contato',
+            experienceIn: 'Trajetória em:'
+          },
+          card: {
+            availability: 'Disponível · Remoto / Internacional',
+            subtitle: 'São Paulo, Brasil · Equipes Globais',
+            locationLabel: 'Localização & Modalidade',
+            locationValue: 'São Paulo, Brasil · Atuação remota e internacional',
+            languagesLabel: 'Idiomas de Trabalho',
+            langEsPt: 'ES / PT · Nativo',
+            langEn: 'EN · Profissional',
+            langFr: 'FR · Básico',
+            focusLabel: 'Foco Atual',
+            focusValue: 'Ciência de Dados (UFMS), Pós-graduação em Mecatrônica (CENES), Produtos Digitais e Editora Apapacho.'
+          },
+          metrics: {
+            yearsTitle: 'Anos em Operações & CX',
+            yearsDesc: 'Aviação, assistência, compras e tecnologia',
+            reposTitle: 'Repositórios no GitHub',
+            reposDesc: 'Código aberto, web e pipelines de dados',
+            langsTitle: 'Idiomas de Trabalho',
+            langsDesc: 'ES · PT (Nativos) · EN (Profissional)',
+            platformsTitle: 'Plataformas Literárias',
+            platformsDesc: 'Amazon Kindle e Apapacho Reader'
+          },
+          pillars: {
+            eyebrow: 'O que faço · Especialidades',
+            title: 'Três pilares que unem negócio, tecnologia e pessoas',
+            subtitle: 'Visão integrada da operação diária com clientes até a arquitetura de produtos digitais e análise de dados.',
+            p1Title: 'Customer Experience & Operações Internacionais',
+            p1Desc: 'Atuação em aviação, assistência médica internacional, compras terceirizadas (procurement) e suporte em equipes multiculturais, resolvendo demandas complexas com empatia e rigor.',
+            p2Title: 'Produtos Digitais & Desenvolvimento Full-Stack',
+            p2Desc: 'Planejamento de produto, arquitetura web, design UX/UI e desenvolvimento com JavaScript, TypeScript, React, Next.js, Node.js, Python e Supabase para plataformas modernas e escaláveis.',
+            p3Title: 'Ciência de Dados & Engenharia de Processos',
+            p3Desc: 'Otimização de fluxos, SQL/MySQL, pipelines de dados em Python e automação apoiada pela formação em Ciência de Dados (UFMS) e pós-graduação em Mecatrônica.'
+          },
+          writer: {
+            eyebrow: 'Escritor & Literatura',
+            titleStart: 'Ficção latino-americana entre ',
+            titleAccent: 'o espanhol, o português e o código.',
+            p1: 'Além da minha atuação em operações e tecnologia, desenvolvo uma trajetória literária como escritor de narrativa breve latino-americana —incluindo a obra <em class="font-serif italic text-white">A cidade das gaivotas</em>—, explorando a memória, o trânsito entre línguas e a sensibilidade contemporânea do continente.',
+            p2: 'Como fundador da <strong class="text-white">Editora Apapacho (Apapacho Digital)</strong>, projetei e construí do zero uma editora digital independente dedicada a conectar a literatura latino-americana a leitores do mundo todo por meio de tecnologia web própria.',
+            quote: '“A precisão da engenharia e o pulso da literatura compartilham o mesmo propósito: construir estruturas claras onde a experiência humana ganha sentido.”',
+            quoteAuthor: 'Sabuat Urbina · Autor & Fundador da Editora Apapacho',
+            kindleBadge: 'Edições Globais',
+            kindleDesc: 'Edições digitais das minhas obras literárias disponíveis globalmente para dispositivos e aplicativos Kindle, levando histórias como <em class="font-serif italic text-white">A cidade das gaivotas</em> a leitores em português e espanhol.',
+            kindleCta: 'Explorar na Amazon Kindle',
+            apapachoBadge: 'Ecossistema Próprio',
+            apapachoDesc: 'Plataforma e leitor digital próprio (<code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">apapacho-web</code> · <code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">reader-app</code>) criado para a Editora Apapacho, oferecendo uma leitura limpa, fluida e sem distrações para a literatura latino-americana.',
+            apapachoCta: 'Ler mais Online'
+          },
+          github: {
+            eyebrow: 'Portfólio Técnico · Código Aberto',
+            title: 'Projetos no GitHub',
+            filterAll: 'Todos',
+            syncing: 'Sincronizando repositórios ao vivo de github.com/sabuat...',
+            syncedLive: 'Sincronizado ao vivo via API do GitHub (@sabuat)',
+            fallbackNotice: 'Exibindo seleção em destaque de github.com/sabuat',
+            reposLabel: 'Repositórios:',
+            starsLabel: 'Estrelas:',
+            updated: 'Atualizado:',
+            viewCode: 'Ver código',
+            viewAll: 'Ver todos os repositórios no GitHub',
+            emptyFilter: 'Nenhum repositório recente encontrado nesta categoria.',
+            defaultDesc: 'Projeto público em github.com/sabuat focado em código limpo, arquitetura e evolução contínua.'
+          },
+          career: {
+            eyebrow: 'Trajetória Profissional',
+            title: 'Experiência e Formação',
+            tabExp: 'Experiência Profissional',
+            tabEdu: 'Formação e Certificações',
+            certsTitle: 'Certificações em Destaque',
+            experience: [
+              {
+                period: 'out 2024 – Atual',
+                location: 'São Paulo, Brasil',
+                role: 'Desenvolvedor de Produto Digital & Fundador',
+                company: 'Apapacho Digital (Editora Apapacho)',
+                current: true,
+                bullets: [
+                  'Lançamento de uma editora digital independente voltada para a literatura latino-americana.',
+                  'Arquitetura de produto, UX/UI, identidade visual e desenvolvimento full-stack da plataforma web e do leitor digital.',
+                  'Estratégia editorial, fluxo de publicação e evolução tecnológica contínua.'
+                ]
+              },
+              {
+                period: 'abr 2022 – Atual',
+                location: 'São Paulo, Brasil',
+                role: 'Tradutor Trilíngue',
+                company: 'Dgrau Digital',
+                current: true,
+                bullets: [
+                  'Tradução e adaptação cultural de catálogos, documentos e materiais de marketing para uma marca mexicana de móveis de luxo.',
+                  'Apoio à comunicação internacional e consistência terminológica em novos mercados.'
+                ]
+              },
+              {
+                period: 'jun 2023 – out 2026',
+                location: 'São Paulo, Brasil',
+                role: 'Reservation Sales & Services Representative',
+                company: 'United Airlines',
+                bullets: [
+                  'Atendimento e operações de reservas internacionais com foco em Customer Experience e resolução de itinerários complexos.',
+                  'Consultoria em voos, tarifas, bagagens, remarcações e processamento de pagamentos em ambiente multilíngue.'
+                ]
+              },
+              {
+                period: 'jan 2023 – jan 2024',
+                location: 'Brasil',
+                role: 'Front End Frameworks Tutor',
+                company: 'Araguaney Escola Digital',
+                bullets: [
+                  'Mentoria técnica e acompanhamento educacional de alunos em desenvolvimento web e frameworks front-end.',
+                  'Apoio em atividades práticas e esclarecimento de conceitos de arquitetura de interface.'
+                ]
+              },
+              {
+                period: 'nov 2019 – jul 2023',
+                location: 'São Paulo, Brasil',
+                role: 'Coordenador Trilíngue',
+                company: 'ASSIST CARD',
+                bullets: [
+                  'Coordenação de assistência médica internacional a viajantes, conectando clientes, hospitais e prestadores globais.',
+                  'Análise de cláusulas contratuais, orçamentos, negociação e acompanhamento de pagamentos.'
+                ]
+              },
+              {
+                period: 'out 2021 – jun 2022',
+                location: 'São Paulo, Brasil',
+                role: 'Analista de Compras (Procurement)',
+                company: 'Accenture Brasil',
+                bullets: [
+                  'Operações de compras terceirizadas para multinacional do setor farmacêutico.',
+                  'Análise de pedidos, notas fiscais, conciliação contábil e interface com produção, logística e finanças.'
+                ]
+              },
+              {
+                period: '2009 – 2019',
+                location: 'Brasil & Venezuela',
+                role: 'Gestão de Projetos, Educação & Administração',
+                company: 'MultCursos · IUTAR · Inces Sede · AVDigital · HeteroFriendly e-Magz',
+                wide: true,
+                bullets: [
+                  'Project Manager na MultCursos liderando a migração da educação presencial para plataformas digitais e capacitação docente.',
+                  'Professor no IUTAR (3 níveis acadêmicos) e Chefe de Divisão no Inces Sede gerenciando planejamento e orçamento de formação.',
+                  'Marketing & Finance Administrator na AVDigital (conciliação bancária, inventários e fornecedores) e Designer Gráfico de Produto na HeteroFriendly e-Magz.'
+                ]
+              }
+            ],
+            education: [
+              {
+                period: 'fev 2024 – nov 2026',
+                degree: 'Tecnólogo (BTech) — Ciência dos Dados',
+                institution: 'Universidade Federal de Mato Grosso do Sul (UFMS)',
+                highlight: true,
+                desc: 'Formação superior tecnológica em análise de dados, estatística, bancos de dados, Python e tomada de decisão baseada em evidências.'
+              },
+              {
+                period: 'out 2026 – jun 2027 · Em andamento',
+                degree: 'Pós-graduação em Mecatrônica',
+                institution: 'CENES Pós-Graduação',
+                highlight: true,
+                desc: 'Especialização voltada à automação, integração de sistemas e engenharia de processos.'
+              },
+              {
+                period: '2005 – 2009',
+                degree: 'Bacharelado em Administração (BBA)',
+                institution: 'Universidad de los Andes (Venezuela)',
+                desc: 'Base sólida em administração de empresas, finanças, planejamento estratégico e gestão operacional.'
+              },
+              {
+                period: '2022 – 2023',
+                degree: 'Desenvolvedor Front End & Gestão de Talentos',
+                institution: 'Alura (2022–2023) · Cruzeiro do Sul Virtual (2023)',
+                desc: 'Especialização prática em HTML5, CSS3, JavaScript e React (Alura) combinada com Competência e Gestão de Talentos (Cruzeiro do Sul).'
+              }
+            ],
+            certifications: [
+              'Gestão de Infraestrutura de TI',
+              'SQL com MySQL Server — Oracle ONE',
+              'Formação Empreendedorismo T4 — ONE',
+              'Introduction to UI/UX',
+              'Coaching and Developing Employees'
+            ]
+          },
+          faq: {
+            eyebrow: 'Perguntas Frequentes',
+            title: 'O essencial sobre o meu trabalho',
+            items: [
+              {
+                q: 'Para quais áreas e projetos estou aberto?',
+                a: 'Estou aberto a oportunidades em Customer Experience (CX), Operações Internacionais, Suporte Técnico, Melhoria de Processos, Análise de Dados e Desenvolvimento Web/Produto Digital, tanto em equipes internacionais quanto em projetos digitais e editoriais.'
+              },
+              {
+                q: 'Como CX, Dados e Desenvolvimento Full-Stack se conectam no meu perfil?',
+                a: 'A vivência direta com clientes e operações complexas mostra onde estão os gargalos reais. Minha formação em Administração, Ciência de Dados e Desenvolvimento Web permite transformar esses aprendizados em processos claros, métricas acionáveis e ferramentas digitais eficientes.'
+              },
+              {
+                q: 'Onde posso ler seus livros e projetos literários?',
+                a: 'Minhas obras literárias —incluindo A cidade das gaivotas— estão disponíveis em formato digital na Amazon Kindle e integram o ecossistema de leitura independente da Editora Apapacho (Apapacho Reader), desenvolvido com tecnologia web própria.'
+              },
+              {
+                q: 'Em quais idiomas você trabalha?',
+                a: 'Trabalho com fluência nativa/bilíngue em Português e Espanhol, nível profissional completo em Inglês e conhecimentos básicos de Francês, com ampla experiência em equipes remotas e multiculturais.'
+              }
+            ]
+          },
+          contact: {
+            eyebrow: 'Contato Direto',
+            title: 'Vamos construir seu próximo projeto ou fortalecer sua operação?',
+            subtitle: 'Aberto a oportunidades em Customer Experience, Operações Internacionais, Suporte Técnico, Melhoria de Processos, Dados e Desenvolvimento Web, além de parcerias editoriais.',
+            emailBtn: 'Enviar e-mail',
+            copyEmail: 'Copiar e-mail',
+            copiedToast: 'E-mail copiado: sabuaturbina@yahoo.com'
+          },
+          footer: {
+            bio: 'Customer Experience, Operações Internacionais, Ciência de Dados, Desenvolvimento Web e Literatura Latino-Americana.',
+            linksTitle: 'Navegação',
+            channelsTitle: 'Canais',
+            copyright: '© 2026 Sabuat Urbina Ribeiro. Todos os direitos reservados.',
+            langHint: 'Idioma detectado automaticamente pelo navegador (ES · PT · EN).'
+          }
+        },
+
+        en: {
+          meta: {
+            title: 'Sabuat Urbina Ribeiro — Customer Experience, Data, Digital Products & Literature',
+            description: 'Professional and literary portfolio of Sabuat Urbina Ribeiro. Customer Experience, International Operations, Data Science, Full-Stack Web Development, and Latin American Literature.'
+          },
+          brand: { tagline: 'CX · Data · Author' },
+          nav: {
+            about: 'About',
+            capabilities: 'Capabilities',
+            literature: 'Literature',
+            github: 'GitHub',
+            experience: 'Experience',
+            faq: 'FAQ',
+            contact: 'Contact',
+            cta: 'Contact Me'
+          },
+          hero: {
+            eyebrow: 'Customer Experience · Full-Stack & Data · Author',
+            titleStart: 'Global operations, data engineering, and digital storytelling with ',
+            titleAccent: 'human precision.',
+            summary: 'Multidisciplinary professional with experience in Customer Experience, international operations, process improvement, data science, and web development. Latin American fiction author and founder of Editora Apapacho, bridging business vision, technology, and culture across multilingual teams.',
+            ctaPrimary: 'View GitHub Projects',
+            ctaSecondary: 'Contact Me',
+            experienceIn: 'Experience at:'
+          },
+          card: {
+            availability: 'Available · Remote / International',
+            subtitle: 'São Paulo, Brazil · Global Teams',
+            locationLabel: 'Location & Work Mode',
+            locationValue: 'São Paulo, Brazil · Remote & international operations',
+            languagesLabel: 'Working Languages',
+            langEsPt: 'ES / PT · Native',
+            langEn: 'EN · Full Professional',
+            langFr: 'FR · Elementary',
+            focusLabel: 'Current Focus',
+            focusValue: 'Data Science (UFMS), Post-grad in Mechatronics (CENES), Digital Products & Editora Apapacho.'
+          },
+          metrics: {
+            yearsTitle: 'Years in Operations & CX',
+            yearsDesc: 'Aviation, assistance, procurement & tech',
+            reposTitle: 'GitHub Repositories',
+            reposDesc: 'Open source, web apps & data pipelines',
+            langsTitle: 'Working Languages',
+            langsDesc: 'ES · PT (Native) · EN (Full Professional)',
+            platformsTitle: 'Literary Platforms',
+            platformsDesc: 'Amazon Kindle & Apapacho Reader'
+          },
+          pillars: {
+            eyebrow: 'What I Do · Core Pillars',
+            title: 'Three pillars uniting business, technology, and people',
+            subtitle: 'End-to-end perspective from frontline customer operations to product architecture and data analysis.',
+            p1Title: 'Customer Experience & International Operations',
+            p1Desc: 'Experience across aviation, international medical assistance, outsourced procurement, and multicultural support teams—resolving complex journeys with empathy and operational rigor.',
+            p2Title: 'Digital Products & Full-Stack Web',
+            p2Desc: 'Product planning, web architecture, UX/UI design, and full-stack delivery with JavaScript, TypeScript, React, Next.js, Node.js, Python, and Supabase for modern, scalable platforms.',
+            p3Title: 'Data Science & Process Engineering',
+            p3Desc: 'Workflow optimization, SQL/MySQL, Python data pipelines, and systems automation backed by a Data Science degree (UFMS) and ongoing Mechatronics post-graduate studies.'
+          },
+          writer: {
+            eyebrow: 'Author & Literature',
+            titleStart: 'Latin American fiction bridging ',
+            titleAccent: 'Spanish, Portuguese, and code.',
+            p1: 'Alongside my work in operations and technology, I maintain an active literary trajectory as a writer of Latin American short fiction—including <em class="font-serif italic text-white">A cidade das gaivotas</em>—exploring memory, cross-lingual sensibilities, and contemporary life.',
+            p2: 'As founder of <strong class="text-white">Editora Apapacho (Apapacho Digital)</strong>, I conceived and engineered an independent digital publishing house from scratch to connect contemporary Latin American literature with readers worldwide through custom web technology.',
+            quote: '“Engineering precision and literary storytelling share the same craft: building clear structures where human experience resonates.”',
+            quoteAuthor: 'Sabuat Urbina · Author & Founder of Editora Apapacho',
+            kindleBadge: 'Global Editions',
+            kindleDesc: 'Digital editions of my literary works available globally across Kindle devices and apps, bringing stories like <em class="font-serif italic text-white">A cidade das gaivotas</em> to Spanish and Portuguese readers.',
+            kindleCta: 'Explore on Amazon Kindle',
+            apapachoBadge: 'Custom Ecosystem',
+            apapachoDesc: 'Custom-built digital reading platform and ecosystem (<code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">apapacho-web</code> · <code class="text-white/90 text-xs bg-white/10 px-1.5 py-0.5 rounded">reader-app</code>) created for Editora Apapacho, delivering a clean, distraction-free reading experience for Latin American literature.',
+            apapachoCta: 'Read more OnLine'
+          },
+          github: {
+            eyebrow: 'Technical Portfolio · Open Source',
+            title: 'Live GitHub Projects',
+            filterAll: 'All',
+            syncing: 'Syncing live repositories from github.com/sabuat...',
+            syncedLive: 'Live synced from GitHub API (@sabuat)',
+            fallbackNotice: 'Showing featured selection from github.com/sabuat',
+            reposLabel: 'Repositories:',
+            starsLabel: 'Stars:',
+            updated: 'Updated:',
+            viewCode: 'View code',
+            viewAll: 'View all repositories on GitHub',
+            emptyFilter: 'No recent repositories match this language filter.',
+            defaultDesc: 'Public repository on github.com/sabuat focused on clean code, architecture, and continuous improvement.'
+          },
+          career: {
+            eyebrow: 'Background',
+            title: 'Experience & Education',
+            tabExp: 'Professional Experience',
+            tabEdu: 'Education & Certifications',
+            certsTitle: 'Key Certifications',
+            experience: [
+              {
+                period: 'Oct 2024 – Present',
+                location: 'São Paulo, Brazil',
+                role: 'Digital Product Developer & Founder',
+                company: 'Apapacho Digital (Editora Apapacho)',
+                current: true,
+                bullets: [
+                  'Founded and launched an independent digital publishing house dedicated to Latin American literature.',
+                  'Owned product architecture, UX/UI, brand identity, and full-stack development of the web platform and digital reader.',
+                  'Led editorial strategy, publishing workflows, and continuous platform evolution.'
+                ]
+              },
+              {
+                period: 'Apr 2022 – Present',
+                location: 'São Paulo, Brazil',
+                role: 'Trilingual Translator',
+                company: 'Dgrau Digital',
+                current: true,
+                bullets: [
+                  'Translation and cultural adaptation of catalogs, marketing assets, and documents for a luxury Mexican furniture brand.',
+                  'Supported international expansion and terminological consistency across markets.'
+                ]
+              },
+              {
+                period: 'Jun 2023 – Oct 2026',
+                location: 'São Paulo, Brazil',
+                role: 'Reservation Sales & Services Representative',
+                company: 'United Airlines',
+                bullets: [
+                  'International reservation operations centered on Customer Experience and complex itinerary problem-solving.',
+                  'Guided passengers on flights, fares, baggage, schedule changes, and payments in a multilingual environment.'
+                ]
+              },
+              {
+                period: 'Jan 2023 – Jan 2024',
+                location: 'Brazil',
+                role: 'Front End Frameworks Tutor',
+                company: 'Araguaney Escola Digital',
+                bullets: [
+                  'Provided technical mentoring and hands-on learning support in web development and front-end frameworks.',
+                  'Reviewed practical projects and guided students on UI architecture best practices.'
+                ]
+              },
+              {
+                period: 'Nov 2019 – Jul 2023',
+                location: 'São Paulo, Brazil',
+                role: 'Trilingual Coordinator',
+                company: 'ASSIST CARD',
+                bullets: [
+                  'Coordinated international medical assistance for travelers, connecting patients, hospitals, and global providers.',
+                  'Reviewed policy clauses, budgets, provider negotiations, and payment follow-up.'
+                ]
+              },
+              {
+                period: 'Oct 2021 – Jun 2022',
+                location: 'São Paulo, Brazil',
+                role: 'Procurement Analyst',
+                company: 'Accenture Brasil',
+                bullets: [
+                  'Managed outsourced procurement operations for a multinational pharmaceutical client.',
+                  'Audited purchase documents, invoices, and accounting records while partnering with production, logistics, and finance.'
+                ]
+              },
+              {
+                period: '2009 – 2019',
+                location: 'Brazil & Venezuela',
+                role: 'Earlier Leadership, Education & Operations',
+                company: 'MultCursos · IUTAR · Inces Sede · AVDigital · HeteroFriendly e-Magz',
+                wide: true,
+                bullets: [
+                  'Project Manager at MultCursos leading the migration from in-person to digital education and faculty training.',
+                  'Professor at IUTAR (three academic levels) and Division Chief at Inces Sede overseeing training budgets and planning.',
+                  'Marketing & Finance Administrator at AVDigital (accounting reconciliation, inventory, suppliers) and Product Graphic Designer at HeteroFriendly e-Magz.'
+                ]
+              }
+            ],
+            education: [
+              {
+                period: 'Feb 2024 – Nov 2026',
+                degree: 'Bachelor of Technology (BTech) — Data Science',
+                institution: 'Universidade Federal de Mato Grosso do Sul (UFMS)',
+                highlight: true,
+                desc: 'Undergraduate technology degree in data analysis, statistics, databases, Python, and evidence-based decision making.'
+              },
+              {
+                period: 'Oct 2026 – Jun 2027 · In Progress',
+                degree: 'Post-graduation in Mechatronics',
+                institution: 'CENES Pós-Graduação',
+                highlight: true,
+                desc: 'Post-graduate specialization focused on automation, systems integration, and process engineering.'
+              },
+              {
+                period: '2005 – 2009',
+                degree: 'Bachelor of Business Administration (BBA)',
+                institution: 'Universidad de los Andes (Venezuela)',
+                desc: 'Strong foundation in business administration, finance, strategic planning, and operational management.'
+              },
+              {
+                period: '2022 – 2023',
+                degree: 'Front End Developer & Talent Management',
+                institution: 'Alura (2022–2023) · Cruzeiro do Sul Virtual (2023)',
+                desc: 'Hands-on training in HTML5, CSS3, JavaScript, and React (Alura) paired with Competency & Talent Management (Cruzeiro do Sul).'
+              }
+            ],
+            certifications: [
+              'IT Infrastructure Management',
+              'SQL with MySQL Server — Oracle ONE',
+              'Entrepreneurship Program T4 — ONE',
+              'Introduction to UI/UX',
+              'Coaching and Developing Employees'
+            ]
+          },
+          faq: {
+            eyebrow: 'Frequently Asked Questions',
+            title: 'Key details about my work',
+            items: [
+              {
+                q: 'What roles and projects are you open to?',
+                a: 'I am open to opportunities in Customer Experience (CX), International Operations, Technical Support, Process Improvement, Data Analysis, and Digital Product / Full-Stack Web Development, as well as digital publishing collaborations.'
+              },
+              {
+                q: 'How do CX, Data, and Full-Stack Development connect in your profile?',
+                a: 'Direct experience with customers and complex operations reveals where real friction happens. Combining Business Administration, Data Science, and Full-Stack Web Development allows me to turn those insights into cleaner workflows, clear metrics, and practical digital tools.'
+              },
+              {
+                q: 'Where can I read your books and literary projects?',
+                a: 'My literary works—including A cidade das gaivotas—are available digitally on Amazon Kindle and are part of the independent reading ecosystem at Editora Apapacho (Apapacho Reader), built with custom web technology.'
+              },
+              {
+                q: 'What languages do you work in?',
+                a: 'I work with native/bilingual fluency in Spanish and Portuguese, full professional proficiency in English, and elementary French, with extensive experience in distributed multicultural teams.'
+              }
+            ]
+          },
+          contact: {
+            eyebrow: 'Direct Contact',
+            title: 'Ready to build your next product or elevate your operations?',
+            subtitle: 'Open to opportunities in Customer Experience, International Operations, Technical Support, Process Engineering, Data, and Full-Stack Web Development, as well as literary collaborations.',
+            emailBtn: 'Send an Email',
+            copyEmail: 'Copy email',
+            copiedToast: 'Email copied: sabuaturbina@yahoo.com'
+          },
+          footer: {
+            bio: 'Customer Experience, International Operations, Data Science, Full-Stack Web Development, and Latin American Literature.',
+            linksTitle: 'Navigation',
+            channelsTitle: 'Channels',
+            copyright: '© 2026 Sabuat Urbina Ribeiro. All rights reserved.',
+            langHint: 'Language automatically detected from your browser (ES · PT · EN).'
+          }
+        }
+      };
+
+      /* -------------------------------------------------------
+         2. LANGUAGE DETECTION & STATE (ES / PT / EN fallback)
+      ------------------------------------------------------- */
+      const STORAGE_KEY = 'sabuat_lang_override';
+
+      function detectInitialLanguage() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === 'es' || saved === 'pt' || saved === 'en') {
+            return saved;
+          }
+        } catch (e) { /* ignore storage restrictions */ }
+
+        const browserLangs = (navigator.languages && navigator.languages.length)
+          ? navigator.languages
+          : [navigator.language || 'en'];
+
+        const primary = String(browserLangs[0] || 'en').toLowerCase();
+        if (primary.startsWith('es')) return 'es';
+        if (primary.startsWith('pt')) return 'pt';
+        return 'en';
+      }
+
+      let currentLang = detectInitialLanguage();
+      let githubSyncState = 'syncing'; // 'syncing' | 'live' | 'fallback'
+
+      function getTranslation(path) {
+        const parts = path.split('.');
+        let obj = I18N[currentLang];
+        for (let i = 0; i < parts.length; i++) {
+          if (obj && Object.prototype.hasOwnProperty.call(obj, parts[i])) {
+            obj = obj[parts[i]];
+          } else {
+            return '';
+          }
+        }
+        return obj;
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      /* -------------------------------------------------------
+         3. RENDER EXPERIENCE, EDUCATION & FAQ
+      ------------------------------------------------------- */
+      function renderCareerAndFaq() {
+        const t = I18N[currentLang];
+
+        // Experience Cards
+        const expContainer = document.getElementById('panelExperience');
+        if (expContainer) {
+          expContainer.innerHTML = t.career.experience.map(function (item) {
+            const badgeClass = item.current
+              ? 'bg-crimson-soft text-crimson'
+              : 'bg-white border border-hairline text-ink';
+            const spanClass = item.wide ? 'md:col-span-2' : '';
+            const bulletsHtml = item.bullets.map(function (b) {
+              return '<li>' + escapeHtml(b) + '</li>';
+            }).join('');
+
+            return (
+              '<article class="bg-surface rounded-2xl border border-hairline p-6 sm:p-7 hover:bg-white hover:shadow-editorial transition-all ' + spanClass + '">' +
+                '<div class="flex flex-wrap items-center justify-between gap-2 mb-3">' +
+                  '<span class="px-3 py-1 rounded-full text-xs font-bold ' + badgeClass + '">' + escapeHtml(item.period) + '</span>' +
+                  '<span class="text-xs font-medium text-slatebody">' + escapeHtml(item.location) + '</span>' +
+                '</div>' +
+                '<h3 class="text-lg font-extrabold text-ink">' + escapeHtml(item.role) + '</h3>' +
+                '<p class="text-sm font-bold text-crimson mb-3">' + escapeHtml(item.company) + '</p>' +
+                '<ul class="space-y-1.5 text-sm text-slatebody list-disc pl-4 leading-relaxed">' + bulletsHtml + '</ul>' +
+              '</article>'
+            );
+          }).join('');
+        }
+
+        // Education Cards
+        const eduGrid = document.getElementById('educationGrid');
+        if (eduGrid) {
+          eduGrid.innerHTML = t.career.education.map(function (ed) {
+            const badgeClass = ed.highlight
+              ? 'bg-crimson-soft text-crimson'
+              : 'bg-white border border-hairline text-ink';
+            return (
+              '<article class="bg-surface rounded-2xl border border-hairline p-7 hover:bg-white hover:shadow-editorial transition-all">' +
+                '<span class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 ' + badgeClass + '">' + escapeHtml(ed.period) + '</span>' +
+                '<h3 class="text-lg sm:text-xl font-extrabold text-ink">' + escapeHtml(ed.degree) + '</h3>' +
+                '<p class="text-sm font-bold text-crimson mt-1 mb-3">' + escapeHtml(ed.institution) + '</p>' +
+                '<p class="text-sm text-slatebody leading-relaxed">' + escapeHtml(ed.desc) + '</p>' +
+              '</article>'
+            );
+          }).join('');
+        }
+
+        // Certifications
+        const certsList = document.getElementById('certificationsList');
+        if (certsList) {
+          certsList.innerHTML = t.career.certifications.map(function (cert) {
+            return (
+              '<li class="flex items-start gap-2.5 bg-white rounded-xl border border-hairline px-4 py-3">' +
+                '<span class="mt-1.5 w-2 h-2 rounded-full bg-crimson shrink-0"></span>' +
+                '<span>' + escapeHtml(cert) + '</span>' +
+              '</li>'
+            );
+          }).join('');
+        }
+
+        // FAQ Accordion
+        const faqList = document.getElementById('faqList');
+        if (faqList) {
+          faqList.innerHTML = t.faq.items.map(function (item, idx) {
+            const isOpen = idx === 0 ? 'true' : 'false';
+            return (
+              '<div class="accordion-item bg-white rounded-2xl border border-hairline overflow-hidden" data-open="' + isOpen + '">' +
+                '<button type="button" class="accordion-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">' +
+                  '<span class="text-base sm:text-lg font-bold text-ink">' + escapeHtml(item.q) + '</span>' +
+                  '<span class="accordion-icon w-8 h-8 rounded-full bg-crimson-soft text-crimson flex items-center justify-center shrink-0 transition-transform duration-200 font-bold text-xl leading-none">+</span>' +
+                '</button>' +
+                '<div class="accordion-content">' +
+                  '<div class="accordion-inner">' +
+                    '<p class="px-6 pb-6 text-sm sm:text-base text-slatebody leading-relaxed">' + escapeHtml(item.a) + '</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>'
+            );
+          }).join('');
+
+          bindFaqListeners();
+        }
+      }
+
+      function bindFaqListeners() {
+        const items = document.querySelectorAll('.accordion-item');
+        items.forEach(function (item) {
+          const trigger = item.querySelector('.accordion-trigger');
+          if (!trigger) return;
+          trigger.addEventListener('click', function () {
+            const isOpen = item.getAttribute('data-open') === 'true';
+            items.forEach(function (other) {
+              other.setAttribute('data-open', 'false');
+            });
+            item.setAttribute('data-open', String(!isOpen));
+          });
+        });
+      }
+
+      /* -------------------------------------------------------
+         4. LIVE GITHUB API + RICH FALLBACK
+      ------------------------------------------------------- */
+      const reposGrid = document.getElementById('reposGrid');
+      const githubStatusEl = document.getElementById('githubStatus');
+      const liveRepoTotalEl = document.getElementById('liveRepoTotal');
+      const liveStarsTotalEl = document.getElementById('liveStarsTotal');
+      const metricReposCountEl = document.getElementById('metricReposCount');
+      const filterButtons = document.querySelectorAll('.repo-filter-btn');
+
+      const fallbackRepos = [
+        {
+          name: 'apapacho-web',
+          description: 'Web platform for Editora Apapacho: catalog, editorial storytelling, and Latin American digital publishing.',
+          language: 'TypeScript',
+          stargazers_count: 2,
+          updated_at: '2026-10-15T12:00:00Z',
+          html_url: 'https://github.com/sabuat/apapacho-web'
+        },
+        {
+          name: 'reader-app',
+          description: 'Apapacho Reader — distraction-free digital reading application crafted for Latin American literature.',
+          language: 'JavaScript',
+          stargazers_count: 2,
+          updated_at: '2026-09-28T12:00:00Z',
+          html_url: 'https://github.com/sabuat/reader-app'
+        },
+        {
+          name: 'apapacho-admin',
+          description: 'Editorial workflow and content management dashboard supporting Editora Apapacho operations.',
+          language: 'TypeScript',
+          stargazers_count: 1,
+          updated_at: '2026-09-10T12:00:00Z',
+          html_url: 'https://github.com/sabuat/apapacho-admin'
+        },
+        {
+          name: 'sp-aluguel-pipeline',
+          description: 'Python data engineering pipeline for collecting, cleaning, and analyzing São Paulo rental market data.',
+          language: 'Python',
+          stargazers_count: 2,
+          updated_at: '2026-08-22T12:00:00Z',
+          html_url: 'https://github.com/sabuat/sp-aluguel-pipeline'
+        },
+        {
+          name: 'site',
+          description: 'Personal portfolio and web architecture experiments focused on clean editorial UI and performance.',
+          language: 'HTML',
+          stargazers_count: 1,
+          updated_at: '2026-07-18T12:00:00Z',
+          html_url: 'https://github.com/sabuat/site'
+        },
+        {
+          name: 'HTML-and-CSS-with-ChatGPT',
+          description: 'Semantic HTML5 and modern CSS3 layouts exploring rapid prototyping and responsive design patterns.',
+          language: 'HTML',
+          stargazers_count: 1,
+          updated_at: '2026-06-12T12:00:00Z',
+          html_url: 'https://github.com/sabuat/HTML-and-CSS-with-ChatGPT'
+        }
+      ];
+
+      let loadedRepos = fallbackRepos.slice();
+      let activeFilter = 'all';
+
+      function matchesFilter(repo, filter) {
+        if (filter === 'all') return true;
+        const lang = (repo.language || '').toLowerCase();
+        if (filter === 'js') return lang === 'javascript' || lang === 'typescript';
+        if (filter === 'python') return lang === 'python' || lang === 'jupyter notebook';
+        if (filter === 'html') return lang === 'html' || lang === 'css' || lang === 'scss';
+        return true;
+      }
+
+      function getLanguageColor(lang) {
+        const colors = {
+          JavaScript: '#F7DF1E',
+          TypeScript: '#3178C6',
+          Python: '#3572A5',
+          'Jupyter Notebook': '#DA5B0B',
+          HTML: '#E34F26',
+          CSS: '#563D7C',
+          Shell: '#89E051',
+          SQL: '#E38C00'
+        };
+        return colors[lang] || '#D9232E';
+      }
+
+      function formatLocalizedDate(isoString) {
+        try {
+          const localeMap = { es: 'es-ES', pt: 'pt-BR', en: 'en-US' };
+          return new Date(isoString).toLocaleDateString(localeMap[currentLang] || 'en-US', {
+            year: 'numeric',
+            month: 'short'
+          });
+        } catch (e) {
+          return '';
+        }
+      }
+
+      function updateGitHubStatusLabel() {
+        if (!githubStatusEl) return;
+        const t = I18N[currentLang].github;
+        if (githubSyncState === 'live') {
+          githubStatusEl.innerHTML =
+            '<span class="w-2 h-2 rounded-full bg-emerald-500"></span>' +
+            '<span>' + escapeHtml(t.syncedLive) + '</span>';
+        } else if (githubSyncState === 'fallback') {
+          githubStatusEl.innerHTML =
+            '<span class="w-2 h-2 rounded-full bg-crimson"></span>' +
+            '<span>' + escapeHtml(t.fallbackNotice) + '</span>';
+        } else {
+          githubStatusEl.innerHTML =
+            '<span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>' +
+            '<span>' + escapeHtml(t.syncing) + '</span>';
+        }
+      }
+
+      function renderRepos() {
+        if (!reposGrid) return;
+        const t = I18N[currentLang].github;
+
+        const filtered = loadedRepos.filter(function (repo) {
+          return matchesFilter(repo, activeFilter);
+        }).slice(0, 6);
+
+        if (filtered.length === 0) {
+          reposGrid.innerHTML =
+            '<div class="col-span-full bg-white rounded-2xl border border-hairline p-8 text-center text-slatebody">' +
+              '<p class="font-semibold text-ink mb-1">' + escapeHtml(t.emptyFilter) + '</p>' +
+              '<a href="https://github.com/sabuat?tab=repositories" target="_blank" rel="noopener noreferrer" class="text-sm text-crimson font-bold underline">github.com/sabuat</a>' +
+            '</div>';
+          return;
+        }
+
+        reposGrid.innerHTML = filtered.map(function (repo) {
+          const lang = repo.language || 'Code';
+          const langColor = getLanguageColor(lang);
+          const desc = repo.description ? escapeHtml(repo.description) : escapeHtml(t.defaultDesc);
+          const stars = typeof repo.stargazers_count === 'number' ? repo.stargazers_count : 0;
+          const updated = formatLocalizedDate(repo.updated_at);
+
+          return (
+            '<article class="group bg-white rounded-2xl border border-hairline p-6 flex flex-col justify-between hover:shadow-cardHover hover:border-crimson/35 transition-all duration-200">' +
+              '<div>' +
+                '<div class="flex items-start justify-between gap-3 mb-3">' +
+                  '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-hairline text-xs font-semibold text-ink">' +
+                    '<span class="w-2 h-2 rounded-full" style="background-color:' + langColor + '"></span>' +
+                    escapeHtml(lang) +
+                  '</span>' +
+                  '<span class="inline-flex items-center gap-1 text-xs font-bold text-slatebody">' +
+                    '<svg class="w-3.5 h-3.5 text-crimson" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>' +
+                    stars +
+                  '</span>' +
+                '</div>' +
+                '<h3 class="text-lg font-extrabold text-ink group-hover:text-crimson transition-colors break-words mb-2">' + escapeHtml(repo.name) + '</h3>' +
+                '<p class="text-sm text-slatebody leading-relaxed">' + desc + '</p>' +
+              '</div>' +
+              '<div class="mt-6 pt-4 border-t border-hairline flex items-center justify-between text-xs">' +
+                '<span class="text-slatebody">' + escapeHtml(t.updated) + ' <strong class="text-ink">' + escapeHtml(updated) + '</strong></span>' +
+                '<a href="' + escapeHtml(repo.html_url) + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-bold text-crimson hover:text-crimson-hover">' +
+                  '<span>' + escapeHtml(t.viewCode) + '</span>' +
+                  '<span aria-hidden="true">→</span>' +
+                '</a>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      async function fetchGitHubData() {
+        try {
+          const [userRes, reposRes] = await Promise.all([
+            fetch('https://api.github.com/users/sabuat'),
+            fetch('https://api.github.com/users/sabuat/repos?sort=updated&per_page=100')
+          ]);
+
+          if (userRes.ok) {
+            const userData = await userRes.json();
+            if (typeof userData.public_repos === 'number') {
+              if (liveRepoTotalEl) liveRepoTotalEl.textContent = String(userData.public_repos);
+              if (metricReposCountEl) metricReposCountEl.textContent = userData.public_repos + '+';
+            }
+          }
+
+          if (!reposRes.ok) throw new Error('GitHub repos API error');
+          const reposData = await reposRes.json();
+
+          if (Array.isArray(reposData) && reposData.length > 0) {
+            const totalStars = reposData.reduce(function (sum, r) {
+              return sum + (typeof r.stargazers_count === 'number' ? r.stargazers_count : 0);
+            }, 0);
+            if (liveStarsTotalEl) liveStarsTotalEl.textContent = String(totalStars);
+
+            const nonForks = reposData.filter(function (r) { return !r.fork; });
+            loadedRepos = nonForks.length >= 4 ? nonForks : reposData;
+            githubSyncState = 'live';
+            updateGitHubStatusLabel();
+            renderRepos();
+          } else {
+            throw new Error('Empty repos');
+          }
+        } catch (err) {
+          githubSyncState = 'fallback';
+          const fallbackStars = fallbackRepos.reduce(function (sum, r) { return sum + r.stargazers_count; }, 0);
+          if (liveStarsTotalEl && liveStarsTotalEl.textContent === '—') {
+            liveStarsTotalEl.textContent = String(fallbackStars) + '+';
+          }
+          updateGitHubStatusLabel();
+          renderRepos();
+        }
+      }
+
+      /* -------------------------------------------------------
+         5. APPLY LANGUAGE ACROSS ENTIRE PAGE
+      ------------------------------------------------------- */
+      const HTML_RICH_KEYS = new Set(['writer.p1', 'writer.p2', 'writer.kindleDesc', 'writer.apapachoDesc']);
+
+      function applyLanguage(lang, saveOverride) {
+        if (lang !== 'es' && lang !== 'pt' && lang !== 'en') lang = 'en';
+        currentLang = lang;
+
+        if (saveOverride) {
+          try {
+            localStorage.setItem(STORAGE_KEY, lang);
+          } catch (e) { /* ignore */ }
+        }
+
+        // Update <html lang>, <title>, and meta description
+        document.documentElement.lang = lang;
+        document.title = I18N[lang].meta.title;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', I18N[lang].meta.description);
+
+        // Update all static data-i18n nodes
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          const key = el.getAttribute('data-i18n');
+          const value = getTranslation(key);
+          if (!value) return;
+          if (HTML_RICH_KEYS.has(key)) {
+            el.innerHTML = value;
+          } else {
+            el.textContent = value;
+          }
+        });
+
+        // Update language switcher button styles
+        document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+          const isSelected = btn.getAttribute('data-lang-btn') === lang;
+          btn.className = isSelected
+            ? 'lang-btn px-2.5 py-1 rounded-full bg-ink text-white transition-colors'
+            : 'lang-btn px-2.5 py-1 rounded-full text-slatebody hover:text-ink transition-colors';
+          btn.setAttribute('aria-pressed', String(isSelected));
+        });
+
+        // Re-render dynamic translated sections
+        renderCareerAndFaq();
+        updateGitHubStatusLabel();
+        renderRepos();
+      }
+
+      // Bind language switcher clicks
+      document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLanguage(btn.getAttribute('data-lang-btn'), true);
+        });
+      });
+
+      /* -------------------------------------------------------
+         6. UI INTERACTIONS (Mobile Menu, Tabs, Filters, Toast)
+      ------------------------------------------------------- */
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIconOpen = document.getElementById('menuIconOpen');
+      const menuIconClose = document.getElementById('menuIconClose');
+
+      function setMobileMenu(isOpen) {
+        if (!mobileMenu || !mobileMenuBtn) return;
+        mobileMenu.classList.toggle('hidden', !isOpen);
+        menuIconOpen.classList.toggle('hidden', isOpen);
+        menuIconClose.classList.toggle('hidden', !isOpen);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function () {
+          setMobileMenu(mobileMenu.classList.contains('hidden'));
+        });
+      }
+      document.querySelectorAll('.mobile-link').forEach(function (link) {
+        link.addEventListener('click', function () { setMobileMenu(false); });
+      });
+
+      // Experience / Education Tabs
+      const tabBtnExperience = document.getElementById('tabBtnExperience');
+      const tabBtnEducation = document.getElementById('tabBtnEducation');
+      const panelExperience = document.getElementById('panelExperience');
+      const panelEducation = document.getElementById('panelEducation');
+
+      function switchCareerTab(tab) {
+        const isExp = tab === 'exp';
+        panelExperience.classList.toggle('hidden', !isExp);
+        panelExperience.classList.toggle('grid', isExp);
+        panelEducation.classList.toggle('hidden', isExp);
+
+        tabBtnExperience.setAttribute('aria-selected', String(isExp));
+        tabBtnEducation.setAttribute('aria-selected', String(!isExp));
+
+        tabBtnExperience.className = isExp
+          ? 'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-crimson text-white transition-all'
+          : 'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slatebody hover:text-ink transition-all';
+
+        tabBtnEducation.className = !isExp
+          ? 'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-crimson text-white transition-all'
+          : 'px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slatebody hover:text-ink transition-all';
+      }
+
+      if (tabBtnExperience && tabBtnEducation) {
+        tabBtnExperience.addEventListener('click', function () { switchCareerTab('exp'); });
+        tabBtnEducation.addEventListener('click', function () { switchCareerTab('edu'); });
+      }
+
+      // GitHub Language Filters
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activeFilter = btn.getAttribute('data-filter') || 'all';
+          filterButtons.forEach(function (b) {
+            const isSelected = b === btn;
+            b.className = isSelected
+              ? 'repo-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-ink text-white transition-colors'
+              : 'repo-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-white text-slatebody border border-hairline hover:border-ink hover:text-ink transition-colors';
+          });
+          renderRepos();
+        });
+      });
+
+      // Copy Email Toast (using execCommand for iFrame compatibility)
+      const copyEmailBtn = document.getElementById('copyEmailBtn');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastText = document.getElementById('toastText');
+      let toastTimer = null;
+
+      function showToast(message) {
+        if (!toastMessage || !toastText) return;
+        toastText.textContent = message;
+        toastMessage.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toastMessage.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        }, 2800);
+      }
+
+      if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', function () {
+          const email = 'sabuaturbina@yahoo.com';
+          try {
+            const textarea = document.createElement('textarea');
+            textarea.value = email;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'absolute';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast(I18N[currentLang].contact.copiedToast);
+          } catch (e) {
+            showToast(email);
+          }
+        });
+      }
+
+      /* -------------------------------------------------------
+         7. INITIALIZE
+      ------------------------------------------------------- */
+      applyLanguage(currentLang, false);
+      fetchGitHubData();
+    })();
+  </script>
+</body>
+</html>
